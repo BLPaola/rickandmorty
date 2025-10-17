@@ -8,7 +8,8 @@ const BASE_URL_BACKEND = environment.baseUrlApi;
 
 export async function fetchDataCharactersApi() {
   try {
-    const response = await fetch("api/character");
+   // const response = await fetch("api/character");
+    const response = await fetch("http://localhost:8080");
 
     if (response.status !== 200) {
         throw new Error("Hubo un error en la consulta de characters del API!");
@@ -20,6 +21,7 @@ export async function fetchDataCharactersApi() {
     throw error;
   }
 }
+
 
 export async function fetchDataLocationApi() {
   try {
@@ -82,7 +84,7 @@ export async function insertDataFromRamApi(dataMassive: DataMassive) {
 
 export async function getCharactersApi() {
   try {
-    const url = `${BASE_URL_API}/character`;
+    const url = `${BASE_URL_API}/api/users`;
 
     const headers = { 
       method: "GET", 
@@ -106,7 +108,7 @@ export async function getCharactersApi() {
 
 export async function postCharacterApi(formValue: Character) {
   try {
-    const url = `${BASE_URL_BACKEND}/api/v1/characters`;
+    const url = `${BASE_URL_BACKEND}/api/users`;
 
     const params = {
       method: "POST",
@@ -133,7 +135,7 @@ export async function postCharacterApi(formValue: Character) {
 
 export async function putCharacterApi(formValue: Character) {
   try {
-    const url = `${BASE_URL_BACKEND}/api/v1/characters/${formValue.id}`;
+    const url = `${BASE_URL_BACKEND}/api/users/${formValue.id}`;
 
     const params = {
       method: "PUT",
@@ -160,7 +162,7 @@ export async function putCharacterApi(formValue: Character) {
 
 export async function deleteCharacterApi(characterId: string) {
   try {
-    const url = `${BASE_URL_BACKEND}/api/v1/characters/${characterId}`;
+    const url = `${BASE_URL_BACKEND}/api/users/${characterId}`;
 
     const params = {
       method: "DELETE",

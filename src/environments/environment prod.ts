@@ -1,5 +1,5 @@
 
 export const environment = {
     production: true,
-    baseUrlApi: 'https://rickandmortyapi.com/api'
+    baseUrlApi: 'http://localhost:8080/api'
 }

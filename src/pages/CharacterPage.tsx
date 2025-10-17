@@ -12,7 +12,7 @@ import { useCharacter } from '../hooks/useCharacter';
 import { Character } from '../interfaces/character.interface';
 import { CharacterForm } from '../components/character-form/CharacterForm';
 import { DataMassive } from '../interfaces/data-massive.interface';
-
+import { getCharactersApi } from '../api/character.api';
 
 
 const columns: ColumnsInterface[] = [
@@ -99,15 +99,16 @@ export function CharacterPage() {
 };
 
   const getCharactersServerApi = () => {
-    setLoading(true);
-    getCharacters().then((response) => {
-      setCharacters(response.results);
-    });
-    console.log('antes de timeout')
-    setTimeout(() => {
+      setLoading(true);
+  getCharactersApi()
+    .then((response) => {
+      setCharacters(response);
       setLoading(false);
-    }, 3000);
-    console.log('despues de timeout')
+    })
+    .catch((error) => {
+      console.error("Error al traer usuarios:", error);
+      setLoading(false);
+    });
   };
 
   const getCharactersBackend = () => {

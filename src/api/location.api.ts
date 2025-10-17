@@ -6,7 +6,10 @@ const BASE_URL_API = environment.baseUrlApi;
 
 export async function getCharactersServerApi() {
   try {
-    const url = `${BASE_URL_API}/character`;
+    //const url = `${BASE_URL_API}/character`;
+    const url = `http://localhost:8080//api/catalog/locations`;
+  
+
 
     const headers = { 
       method: "GET", 
